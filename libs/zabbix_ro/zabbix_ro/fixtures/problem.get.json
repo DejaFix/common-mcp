@@ -1,0 +1,57 @@
+[
+ {
+  "eventid": "27",
+  "source": "0",
+  "object": "0",
+  "objectid": "25250",
+  "clock": "1791967806",
+  "ns": "1193300",
+  "r_eventid": "0",
+  "r_clock": "0",
+  "r_ns": "0",
+  "correlationid": "0",
+  "userid": "0",
+  "name": "Windows: FS [(C:)]: Space is critically low (used > 90%, total 111.1GB)",
+  "acknowledged": "0",
+  "severity": "3",
+  "cause_eventid": "0",
+  "suppressed": "0",
+  "acknowledges": [],
+  "opdata": "Space used: 92.0%",
+  "tags": [
+   {
+    "tag": "class",
+    "value": "os"
+   },
+   {
+    "tag": "component",
+    "value": "storage"
+   },
+   {
+    "tag": "filesystem",
+    "value": "C:"
+   },
+   {
+    "tag": "fstype",
+    "value": "NTFS"
+   },
+   {
+    "tag": "project",
+    "value": "dejafix"
+   },
+   {
+    "tag": "scope",
+    "value": "availability"
+   },
+   {
+    "tag": "scope",
+    "value": "capacity"
+   },
+   {
+    "tag": "target",
+    "value": "windows"
+   }
+  ],
+  "urls": []
+ }
+]

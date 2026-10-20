@@ -1,0 +1,25 @@
+{
+  "jsonrpc": "2.0",
+  "method": "item.get",
+  "params": {
+    "output": [
+      "itemid",
+      "key_",
+      "name",
+      "type",
+      "value_type",
+      "units",
+      "delay",
+      "history",
+      "trends",
+      "status",
+      "state",
+      "error",
+      "lastclock",
+      "lastvalue"
+    ],
+    "hostids": "<hostid>",
+    "sortfield": "key_"
+  },
+  "id": 3
+}

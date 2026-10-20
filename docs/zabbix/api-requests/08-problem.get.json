@@ -1,0 +1,21 @@
+{
+  "jsonrpc": "2.0",
+  "method": "problem.get",
+  "params": {
+    "output": "extend",
+    "hostids": "<hostid>",
+    "recent": true,
+    "selectTags": "extend",
+    "selectAcknowledges": [
+      "clock",
+      "message",
+      "action"
+    ],
+    "sortfield": [
+      "eventid"
+    ],
+    "sortorder": "DESC",
+    "limit": 50
+  },
+  "id": 8
+}

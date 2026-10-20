@@ -1,0 +1,22 @@
+{
+  "jsonrpc": "2.0",
+  "method": "trend.get",
+  "params": {
+    "output": [
+      "itemid",
+      "clock",
+      "num",
+      "value_min",
+      "value_avg",
+      "value_max"
+    ],
+    "itemids": [
+      "<itemid>",
+      "<itemid>"
+    ],
+    "time_from": 1791359211,
+    "time_till": 1791964011,
+    "limit": 5000
+  },
+  "id": 7
+}

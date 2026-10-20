@@ -1,0 +1,40 @@
+{
+  "jsonrpc": "2.0",
+  "method": "host.get",
+  "params": {
+    "output": [
+      "hostid",
+      "host",
+      "name",
+      "status",
+      "active_available",
+      "maintenance_status"
+    ],
+    "selectInterfaces": [
+      "interfaceid",
+      "type",
+      "main",
+      "useip",
+      "ip",
+      "dns",
+      "port",
+      "available",
+      "error"
+    ],
+    "selectHostGroups": [
+      "groupid",
+      "name"
+    ],
+    "selectParentTemplates": [
+      "templateid",
+      "name"
+    ],
+    "selectTags": [
+      "tag",
+      "value"
+    ],
+    "sortfield": "host",
+    "limit": 50
+  },
+  "id": 2
+}

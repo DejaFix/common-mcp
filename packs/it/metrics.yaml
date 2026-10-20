@@ -1,0 +1,23 @@
+# packs/it/metrics.yaml — 지표 별칭 → Zabbix 아이템 키 (FR-ZBX-007, T58)
+#
+# 근거: docs/zabbix/core-metrics.md (2026-10-14, 템플릿 "Windows by Zabbix agent active",
+#       item.get 실측). Agent 팩 로더(agent/dejafix_agent/packs.py) 분류 규칙:
+#       키가 같거나 "[" 앞 이름이 같으면 그 별칭 → 매개변수가 다른 키도 같은 별칭으로 묶인다.
+#
+# - cpu  : 1분 평균 CPU 사용률(%).
+# - mem  : 메모리 사용률(%), 서버 계산 항목.
+# - disk : Windows 템플릿은 vfs.fs.get 의 종속 항목 vfs.fs.dependent.size[<드라이브>,pused] 를 만든다
+#          (vfs.fs.size 가 아님). 드라이브 이름은 PC마다 달라 대표값 C: 를 적고, 다른 드라이브·
+#          free/total 도 "[" 앞 이름으로 disk 로 분류된다. vfs.fs.size 는 직접 키를 쓰는 템플릿용 예비.
+# - net  : 키에 인터페이스 GUID 가 들어가 PC마다 다르다(net.if.in["{GUID}"]). 그래서 매개변수 없는
+#          이름만 적어 "[" 앞 이름으로 분류한다(errors·dropped 항목도 net 으로 묶임).
+# MVP 지표에 스왑은 넣지 않는다(G18).
+metrics:
+  cpu:
+    keys: [system.cpu.util]
+  mem:
+    keys: [vm.memory.util]
+  disk:
+    keys: ["vfs.fs.dependent.size[C:,pused]", "vfs.fs.size[C:,pused]"]
+  net:
+    keys: [net.if.in, net.if.out]

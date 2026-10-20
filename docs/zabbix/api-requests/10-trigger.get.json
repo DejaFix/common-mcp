@@ -1,0 +1,35 @@
+{
+  "jsonrpc": "2.0",
+  "method": "trigger.get",
+  "params": {
+    "output": [
+      "triggerid",
+      "description",
+      "priority",
+      "value",
+      "status",
+      "state",
+      "lastchange",
+      "error",
+      "expression"
+    ],
+    "hostids": "<hostid>",
+    "expandDescription": true,
+    "expandExpression": true,
+    "selectItems": [
+      "itemid",
+      "key_",
+      "value_type",
+      "units"
+    ],
+    "selectHosts": [
+      "hostid",
+      "host"
+    ],
+    "selectTags": "extend",
+    "sortfield": "priority",
+    "sortorder": "DESC",
+    "limit": 200
+  },
+  "id": 10
+}

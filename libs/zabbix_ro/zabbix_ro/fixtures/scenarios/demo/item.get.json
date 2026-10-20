@@ -1,0 +1,27 @@
+[
+ {
+  "itemid": "40001", "hostid": "10001", "key_": "system.cpu.util", "name": "CPU utilization",
+  "type": "7", "value_type": "0", "units": "%", "delay": "30s", "history": "31d", "trends": "365d",
+  "status": "0", "state": "0", "error": "", "lastclock": "1792027190", "lastvalue": "96.1"
+ },
+ {
+  "itemid": "40002", "hostid": "10001", "key_": "vm.memory.util", "name": "Memory utilization",
+  "type": "7", "value_type": "0", "units": "%", "delay": "1m", "history": "31d", "trends": "365d",
+  "status": "0", "state": "0", "error": "", "lastclock": "1792027190", "lastvalue": "61.3"
+ },
+ {
+  "itemid": "40003", "hostid": "10001", "key_": "vfs.fs.dependent.size[C:,pused]", "name": "C: Space utilization",
+  "type": "7", "value_type": "0", "units": "%", "delay": "1m", "history": "31d", "trends": "365d",
+  "status": "0", "state": "0", "error": "", "lastclock": "1792027190", "lastvalue": "72.4"
+ },
+ {
+  "itemid": "40004", "hostid": "10001", "key_": "net.if.in[\"{GUID}\"]", "name": "Interface Ethernet: Bits received",
+  "type": "7", "value_type": "3", "units": "bps", "delay": "1m", "history": "31d", "trends": "365d",
+  "status": "0", "state": "0", "error": "", "lastclock": "1792027190", "lastvalue": "1250000"
+ },
+ {
+  "itemid": "40012", "hostid": "10602", "key_": "vfs.fs.dependent.size[C:,pused]", "name": "C: Space utilization",
+  "type": "7", "value_type": "0", "units": "%", "delay": "1m", "history": "31d", "trends": "365d",
+  "status": "0", "state": "0", "error": "", "lastclock": "1792027190", "lastvalue": "68.0"
+ }
+]

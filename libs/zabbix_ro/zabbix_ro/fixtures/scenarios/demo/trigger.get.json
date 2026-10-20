@@ -1,0 +1,42 @@
+[
+ {
+  "triggerid": "20001",
+  "description": "High CPU utilization (over 90% for 1m)",
+  "priority": "4",
+  "value": "1",
+  "status": "0",
+  "state": "0",
+  "lastchange": "1792027200",
+  "error": "",
+  "expression": "avg(/demo-host/system.cpu.util,1m)>90",
+  "hosts": [
+   {"hostid": "10001", "host": "demo-host", "name": "demo-host"}
+  ],
+  "tags": [
+   {"tag": "scope", "value": "performance"}
+  ],
+  "items": [
+   {"itemid": "40001", "key_": "system.cpu.util", "value_type": "0", "units": "%"}
+  ]
+ },
+ {
+  "triggerid": "23002",
+  "description": "Free disk space is less than 10% on volume C:",
+  "priority": "3",
+  "value": "0",
+  "status": "0",
+  "state": "0",
+  "lastchange": "1792025400",
+  "error": "",
+  "expression": "last(/MOCK-PC-02/vfs.fs.dependent.size[C:,pused])>90",
+  "hosts": [
+   {"hostid": "10602", "host": "MOCK-PC-02", "name": "MOCK-PC-02"}
+  ],
+  "tags": [
+   {"tag": "scope", "value": "capacity"}
+  ],
+  "items": [
+   {"itemid": "40012", "key_": "vfs.fs.dependent.size[C:,pused]", "value_type": "0", "units": "%"}
+  ]
+ }
+]

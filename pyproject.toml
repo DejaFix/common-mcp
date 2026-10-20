@@ -1,0 +1,32 @@
+# common-mcp uv workspace 루트. 멤버별 의존성은 각 pyproject.toml에 둔다.
+[project]
+name = "common-mcp"
+version = "0.1.0"
+description = "읽기 전용 Zabbix MCP 서버 + 클라이언트 라이브러리 (DejaFix에서 분리)"
+requires-python = ">=3.12,<3.13"
+dependencies = ["mcp-zabbix", "zabbix-ro"]
+
+[dependency-groups]
+dev = ["ruff", "pytest"]
+
+[tool.uv]
+package = false
+
+[tool.uv.workspace]
+members = ["mcp-zabbix", "libs/zabbix_ro"]
+
+[tool.uv.sources]
+mcp-zabbix = { workspace = true }
+zabbix-ro = { workspace = true }
+
+[tool.ruff]
+target-version = "py312"
+include = ["*.py", "*.pyi", "**/pyproject.toml"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib"]
+testpaths = ["mcp-zabbix/tests", "libs/zabbix_ro/tests"]
+markers = ["safety_regression: 안전 회귀 세트"]

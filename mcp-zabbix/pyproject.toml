@@ -1,0 +1,21 @@
+[project]
+name = "mcp-zabbix"
+version = "0.1.0"
+description = "DejaFix Zabbix MCP 서버 (읽기 전용)"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "mcp>=2.3.0",
+    "uvicorn>=0.54.0",
+    "zabbix-ro",
+]
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "mcp_zabbix"
+module-root = ""
+
+[tool.uv.sources]
+zabbix-ro = { workspace = true }

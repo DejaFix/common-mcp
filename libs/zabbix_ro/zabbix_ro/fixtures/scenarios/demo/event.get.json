@@ -1,0 +1,50 @@
+[
+ {
+  "eventid": "30001",
+  "source": "0",
+  "object": "0",
+  "objectid": "20001",
+  "clock": "1792027200",
+  "value": "1",
+  "severity": "4",
+  "name": "High CPU utilization (over 90% for 1m)",
+  "acknowledged": "0",
+  "r_eventid": "0",
+  "hosts": [
+   {"hostid": "10001", "host": "demo-host", "name": "demo-host"}
+  ],
+  "relatedObject": {
+   "triggerid": "20001",
+   "description": "High CPU utilization (over 90% for 1m)",
+   "priority": "4",
+   "value": "1"
+  },
+  "tags": [
+   {"tag": "scope", "value": "performance"}
+  ]
+ },
+ {
+  "eventid": "90002",
+  "source": "0",
+  "object": "0",
+  "objectid": "23002",
+  "clock": "1792023600",
+  "value": "1",
+  "severity": "3",
+  "name": "Free disk space is less than 10% on volume C:",
+  "acknowledged": "0",
+  "r_eventid": "90010",
+  "hosts": [
+   {"hostid": "10602", "host": "MOCK-PC-02", "name": "MOCK-PC-02"}
+  ],
+  "relatedObject": {
+   "triggerid": "23002",
+   "description": "Free disk space is less than 10% on volume C:",
+   "priority": "3",
+   "value": "0"
+  },
+  "tags": [
+   {"tag": "scope", "value": "capacity"}
+  ]
+ }
+]

@@ -1,0 +1,46 @@
+{
+  "jsonrpc": "2.0",
+  "method": "event.get",
+  "params": {
+    "output": [
+      "eventid",
+      "source",
+      "object",
+      "objectid",
+      "clock",
+      "value",
+      "severity",
+      "name",
+      "r_eventid",
+      "acknowledged"
+    ],
+    "hostids": "<hostid>",
+    "source": 0,
+    "object": 0,
+    "value": [
+      0,
+      1
+    ],
+    "time_from": 1791359211,
+    "time_till": 1791964011,
+    "selectHosts": [
+      "hostid",
+      "host",
+      "name"
+    ],
+    "selectRelatedObject": [
+      "triggerid",
+      "description",
+      "priority",
+      "value"
+    ],
+    "selectTags": "extend",
+    "sortfield": [
+      "clock",
+      "eventid"
+    ],
+    "sortorder": "DESC",
+    "limit": 100
+  },
+  "id": 9
+}

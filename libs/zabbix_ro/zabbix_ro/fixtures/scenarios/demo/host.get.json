@@ -1,0 +1,50 @@
+[
+ {
+  "hostid": "10001",
+  "host": "demo-host",
+  "name": "demo-host",
+  "status": "0",
+  "maintenance_status": "0",
+  "active_available": "1",
+  "parentTemplates": [],
+  "hostgroups": [
+   {"groupid": "2", "name": "Windows servers"}
+  ],
+  "interfaces": [],
+  "tags": [
+   {"tag": "project", "value": "dejafix"}
+  ]
+ },
+ {
+  "hostid": "10602",
+  "host": "MOCK-PC-02",
+  "name": "MOCK-PC-02",
+  "status": "0",
+  "maintenance_status": "0",
+  "active_available": "1",
+  "parentTemplates": [],
+  "hostgroups": [
+   {"groupid": "2", "name": "Windows servers"}
+  ],
+  "interfaces": [],
+  "tags": [
+   {"tag": "project", "value": "dejafix"}
+  ]
+ },
+ {
+  "hostid": "10603",
+  "host": "MOCK-PC-03",
+  "name": "MOCK-PC-03",
+  "status": "0",
+  "maintenance_status": "0",
+  "active_available": "0",
+  "parentTemplates": [],
+  "hostgroups": [
+   {"groupid": "2", "name": "Windows servers"}
+  ],
+  "interfaces": [],
+  "tags": [
+   {"tag": "project", "value": "dejafix"}
+  ]
+ }
+]
