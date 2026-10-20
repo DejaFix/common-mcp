@@ -27,7 +27,7 @@ class StubClient:
         return value(params) if callable(value) else value
 
 
-# -- SAFE-09: 오래된 값 -------------------------------------------------
+# -- 오래된 값 -------------------------------------------------
 def test_stale_delay_30s_lastclock_11min_ago_is_stale():
     assert is_stale(str(int(NOW.timestamp()) - 11 * 60), "30s", NOW) is True
 

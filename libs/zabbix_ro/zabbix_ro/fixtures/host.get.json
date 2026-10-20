@@ -10,14 +10,14 @@
   "hostgroups": [
    {
     "groupid": "22",
-    "name": "DejaFix/Windows"
+    "name": "Demo/Windows"
    }
   ],
   "interfaces": [],
   "tags": [
    {
     "tag": "project",
-    "value": "dejafix"
+    "value": "demo"
    }
   ]
  }

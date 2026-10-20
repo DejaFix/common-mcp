@@ -1,4 +1,4 @@
-"""서버 수준 테스트 — tools/list 5개, 쓰기·planned 미등록(SAFE-03), /healthz, 내부 토큰."""
+"""서버 수준 테스트 — tools/list 5개, 쓰기·planned 미등록, /healthz, 내부 토큰."""
 
 import asyncio
 import json
@@ -8,7 +8,7 @@ from starlette.testclient import TestClient
 from mcp_zabbix.fixtures import EVENTID, HOSTID, FakeZabbix
 from mcp_zabbix.server import REQUIRED_TOOLS, build_app, build_server
 
-# contracts/mcp-tools.md 4장: Agent 허용 12개 중 서버에 등록하지 않는 7개
+# contracts/mcp-tools.md 4장: 소비자 허용 12개 중 서버에 등록하지 않는 7개
 PLANNED = {
     "zabbix_get_event_history",
     "zabbix_list_triggers",

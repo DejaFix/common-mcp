@@ -50,7 +50,7 @@ def test_real_mode_calls_only_the_five_read_methods_and_never_a_write():
 
 @pytest.mark.safety_regression
 def test_probe_never_sends_a_write_even_if_the_allowlist_is_broken(monkeypatch):
-    """허용 목록이 회귀로 깨져 host.update 가 들어 있어도, 점검 도구는 실서버로 쓰기 요청을 보내지 않고 FAIL 로 알린다 (SAFE-02)."""
+    """허용 목록이 회귀로 깨져 host.update 가 들어 있어도, 점검 도구는 실서버로 쓰기 요청을 보내지 않고 FAIL 로 알린다."""
     from zabbix_ro import client as client_module
 
     monkeypatch.setattr(

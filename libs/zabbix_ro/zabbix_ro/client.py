@@ -1,6 +1,6 @@
-"""읽기 전용 Zabbix JSON-RPC 클라이언트 (FR-LIB-001·002·003, SAFE-02).
+"""읽기 전용 Zabbix JSON-RPC 클라이언트.
 
-- 허용 목록(기획서 6-2) 밖 메서드는 네트워크 요청 **전에** MethodNotAllowed.
+- 허용 목록 밖 메서드는 네트워크 요청 **전에** MethodNotAllowed.
 - 인증은 `Authorization: Bearer <ZABBIX_API_TOKEN>`. `user.login`·본문 `auth` 필드는 쓰지 않는다.
 - ZABBIX_MOCK=true 면 네트워크 없이 fixture 를 돌려준다.
 """
@@ -16,7 +16,7 @@ import httpx
 from zabbix_ro.errors import MethodNotAllowed, ZabbixError
 from zabbix_ro.mock import SCENARIOS, mock_result
 
-# httpx 는 INFO 로그에 요청 URL(=Zabbix 서버 주소)을 그대로 남긴다. 주소는 로그에 쓰지 않는다(기획서 11-4).
+# httpx 는 INFO 로그에 요청 URL(=Zabbix 서버 주소)을 그대로 남긴다. 주소는 로그에 쓰지 않는다.
 logging.getLogger("httpx").setLevel(logging.WARNING)
 
 ALLOWED_METHODS = frozenset(
@@ -107,7 +107,7 @@ class ZabbixRoClient:
         self._ids = itertools.count(1)
         self._http: httpx.Client | None = None
         # URL·토큰이 비어 있어도 만들기는 성공한다. 호출 시점에 ZabbixError 를 던져
-        # 호출자(Scheduler 폴링 등)가 그 주기를 오류로 기록하고 다음 주기에 다시 시도할 수 있게 한다.
+        # 호출자(주기 폴링 등)가 그 주기를 오류로 기록하고 다음 주기에 다시 시도할 수 있게 한다.
         if not mock and url and token and not config_error:
             self._http = httpx.Client(
                 verify=verify_tls, timeout=timeout, transport=transport
@@ -119,7 +119,7 @@ class ZabbixRoClient:
         return self.mock or self._http is not None
 
     def call(self, method: str, params: Mapping[str, Any] | None = None) -> Any:
-        _check_allowed(method)  # 요청 전에 막는다 (SAFE-02)
+        _check_allowed(method)  # 요청 전에 막는다
         params = dict(params or {})
         if self.mock:
             if (

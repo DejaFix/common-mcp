@@ -1,4 +1,4 @@
-"""읽기 전용 Zabbix 클라이언트 (Backend·mcp-zabbix·Scheduler 공용)
+"""읽기 전용 Zabbix 클라이언트 (여러 서비스 공용)
 
 import zabbix_ro
 client = zabbix_ro.from_env()                  # ZABBIX_URL·ZABBIX_API_TOKEN·ZABBIX_VERIFY_TLS·ZABBIX_MOCK

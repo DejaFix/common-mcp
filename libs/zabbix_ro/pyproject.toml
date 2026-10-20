@@ -1,7 +1,7 @@
 [project]
 name = "zabbix-ro"
 version = "0.1.0"
-description = "읽기 전용 Zabbix 클라이언트 (Backend·mcp-zabbix·Scheduler 공용)"
+description = "읽기 전용 Zabbix 클라이언트 (여러 서비스 공용)"
 requires-python = ">=3.12,<3.13"
 dependencies = ["httpx>=0.27"]
 

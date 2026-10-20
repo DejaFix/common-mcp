@@ -12,7 +12,7 @@
   ],
   "interfaces": [],
   "tags": [
-   {"tag": "project", "value": "dejafix"}
+   {"tag": "project", "value": "demo"}
   ]
  },
  {
@@ -28,7 +28,7 @@
   ],
   "interfaces": [],
   "tags": [
-   {"tag": "project", "value": "dejafix"}
+   {"tag": "project", "value": "demo"}
   ]
  },
  {
@@ -44,7 +44,7 @@
   ],
   "interfaces": [],
   "tags": [
-   {"tag": "project", "value": "dejafix"}
+   {"tag": "project", "value": "demo"}
   ]
  }
 ]

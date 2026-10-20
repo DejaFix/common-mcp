@@ -1,4 +1,4 @@
-"""ZABBIX_MOCK=true — 네트워크 없이 실서버(7.0.31) 응답 fixture 를 돌려준다 (FR-LIB-003)."""
+"""ZABBIX_MOCK=true — 네트워크 없이 실서버(7.0.31) 응답 fixture 를 돌려준다."""
 
 import socket
 
@@ -25,8 +25,8 @@ def test_apiinfo_version(client, no_network):
     assert client.call("apiinfo.version") == "7.0.31"
 
 
-def test_scheduler_problem_get_shape(client, no_network):
-    """Scheduler(T36)가 부르는 problem.get 파라미터 그대로."""
+def test_poller_problem_get_shape(client, no_network):
+    """주기 수집기가 부르는 problem.get 파라미터 그대로."""
     problems = client.call(
         "problem.get",
         {
@@ -54,7 +54,7 @@ def test_scheduler_problem_get_shape(client, no_network):
     )  # Zabbix 는 숫자를 문자열로 준다
 
 
-def test_scheduler_trigger_get_enriches_hosts(client, no_network):
+def test_poller_trigger_get_enriches_hosts(client, no_network):
     problem = client.call("problem.get", {})[0]
     triggers = client.call(
         "trigger.get",

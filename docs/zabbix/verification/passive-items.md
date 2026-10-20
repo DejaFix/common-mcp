@@ -10,7 +10,7 @@
 | agent | `agent.ping` | template | 성공 | 1 | ok | 15 |
 | agent | `agent.version` | template | 성공 | 7.0.31 | ok | 10 |
 | agent | `agent.variant` | extra | 성공 | 2 | ok | 10 |
-| agent | `agent.hostname` | template | 성공 | dejafix-local-test | ok | 10 |
+| agent | `agent.hostname` | template | 성공 | <호스트> | ok | 10 |
 | system | `system.hostname` | template | 성공 | demo-host-01 | ok | 10 |
 | system | `system.hostname[fqdn]` | extra | 성공 | demo-host-01 | ok | 10 |
 | system | `system.uname` | template | 성공 | Windows demo-host-01 10.0.19045 Microsoft Windows 10 Pro x64 | ok | 43 |
@@ -90,7 +90,7 @@
 | service | `service.info[EventLog,startup]` | extra | 성공 | 0 | ok | 9 |
 | service | `service.info[Dnscache,state]` | extra | 성공 | 0 | ok | 9 |
 | service | `service.info[Winmgmt,displayname]` | extra | 성공 | Windows Management Instrumentation | ok | 10 |
-| service | `service.info[NoSuchService_DejaFix]` | extra | 성공 | 255 | ok | 9 |
+| service | `service.info[NoSuchService_Test]` | extra | 성공 | 255 | ok | 9 |
 | service | `services[automatic,stopped]` | extra | 성공 | 6줄 텍스트 (첫 줄: edgeupdate) | ok | 81 |
 | process | `proc.num[]` | template | 성공 | 211 | ok | 13 |
 | process | `proc.num[svchost.exe]` | extra | 성공 | 70 | ok | 13 |

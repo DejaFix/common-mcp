@@ -2,7 +2,7 @@
 [project]
 name = "common-mcp"
 version = "0.1.0"
-description = "읽기 전용 Zabbix MCP 서버 + 클라이언트 라이브러리 (DejaFix에서 분리)"
+description = "읽기 전용 Zabbix MCP 서버 + 클라이언트 라이브러리 (다른 프로젝트에서 분리)"
 requires-python = ">=3.12,<3.13"
 dependencies = ["mcp-zabbix", "zabbix-ro"]
 

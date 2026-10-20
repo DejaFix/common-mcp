@@ -1,6 +1,6 @@
 ﻿<#
 .SYNOPSIS
-  SQLite 2파일 백업 (FR-INF-006, NFR-AVAIL-006, DR-020). shared.db·backend.db 를 SQLite 백업 API로 backups\ 에 복사한다.
+  SQLite 2파일 백업. SQLite DB 두 파일(shared.db·backend.db 예시)을 SQLite 백업 API로 backups\ 에 복사한다.
 
 .DESCRIPTION
   - 파일 복사(cp)가 아니라 SQLite 온라인 백업 API를 쓴다. 서비스가 켜져 있어도(WAL 쓰는 중) 일관된 사본이 나온다.

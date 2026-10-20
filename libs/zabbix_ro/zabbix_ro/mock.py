@@ -1,7 +1,7 @@
 """ZABBIX_MOCK=true 일 때 쓰는 고정 응답.
 
 `default` 시나리오: fixtures/ 는 `docs/zabbix/verification/api-probe-2026-10-14/` 의 실제 응답(Zabbix 7.0.31)
-(result 부분)을 복사한 것이다. trigger.get 의 hosts 에는 host.get 의 `name` 을 보강했다(Scheduler 가 selectHosts 로 name 요청).
+(result 부분)을 복사한 것이다. trigger.get 의 hosts 에는 host.get 의 `name` 을 보강했다(주기 수집기가 selectHosts 로 name 요청).
 fixture 가 없는 허용 메서드는 빈 목록을 돌려준다.
 
 `ZABBIX_MOCK_SCENARIO` 로 상황을 고른다 (기본 `default`, 지금 동작 그대로):
@@ -9,13 +9,13 @@ fixture 가 없는 허용 메서드는 빈 목록을 돌려준다.
 | 시나리오 | 상황 |
 |---|---|
 | `default` | 실서버 응답 그대로 (호스트 demo-host-01, 디스크 장애 1건) |
-| `demo` | **Scheduler·mcp-zabbix 목과 같은 ID**: CPU 장애 30001(trigger 20001, host 10001 demo-host)이 진행 중, 디스크 장애 90002(trigger 23002, host 10602 MOCK-PC-02)는 해결됨, 호스트 3대(MOCK-PC-03 은 가용성 알 수 없음) |
+| `demo` | **mcp-zabbix 목과 같은 ID**: CPU 장애 30001(trigger 20001, host 10001 demo-host)이 진행 중, 디스크 장애 90002(trigger 23002, host 10602 MOCK-PC-02)는 해결됨, 호스트 3대(MOCK-PC-03 은 가용성 알 수 없음) |
 | `quiet` | `demo` 의 호스트인데 문제가 없다 (problem.get·event.get 빈 목록) |
 | `host_down` | `demo` 에서 demo-host 의 에이전트 가용성이 2(불가) |
 | `empty` | `demo` 의 형식인데 목록 메서드가 전부 빈 목록 (호스트 0대) |
 | `outage` | 모든 호출이 ZabbixError (Zabbix 연결 불가) |
 
-Backend·Scheduler·mcp-zabbix 가 목 모드에서 서로 다른 장애를 보여 주지 않도록 `demo` 는 세 곳의 ID 를 맞춘다.
+여러 서비스가 목 모드에서 서로 다른 장애를 보여 주지 않도록 `demo` 는 mcp-zabbix 목과 ID 를 맞춘다.
 """
 
 import copy

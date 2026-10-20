@@ -1,6 +1,6 @@
-"""Zabbix 읽기 전용 MCP 서버 (T42, FR-MCP-001, FR-INF-002).
+"""Zabbix 읽기 전용 MCP 서버.
 
-- streamable HTTP `/mcp`, `GET /healthz`. tools/list 에는 필수 5개만 등록한다(SAFE-03, FR-MCP-009).
+- streamable HTTP `/mcp`, `GET /healthz`. tools/list 에는 필수 5개만 등록한다(쓰기 도구 등록 차단).
 - Zabbix 호출은 libs/zabbix_ro(`from_env().call`) 경유. `ZABBIX_MOCK=true` 면 fixture.
 - 선택 `INTERNAL_TOKEN` 이 있으면 `/mcp` 요청에 `Authorization: Bearer <INTERNAL_TOKEN>` 을 요구한다.
 """

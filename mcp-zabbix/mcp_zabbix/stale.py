@@ -1,4 +1,4 @@
-"""오래된 값 판정과 시각 인자 해석 (FR-MCP-008, SAFE-09, contracts/mcp-tools.md 2-1·2-2)."""
+"""오래된 값 판정과 시각 인자 해석 (contracts/mcp-tools.md 2-1·2-2)."""
 
 import re
 from datetime import UTC, datetime

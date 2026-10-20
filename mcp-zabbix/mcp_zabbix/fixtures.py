@@ -1,8 +1,8 @@
-"""ZABBIX_MOCK=true 용 fixture 클라이언트 (FR-MCP-010).
+"""ZABBIX_MOCK=true 용 fixture 클라이언트.
 
 실 Zabbix 없이 5도구가 같은 모양의 봉투를 돌려주게 하는 가짜 `call(method, params)`.
 Zabbix 원본처럼 숫자도 전부 문자열이다(실측 api-probe-2026-10-14).
-키는 packs/it/metrics.yaml 의 별칭 키를 흉내 낸 예시값일 뿐, 키 선택은 Agent 가 한다.
+키는 packs/it/metrics.yaml 의 별칭 키를 흉내 낸 예시값일 뿐, 키 선택은 호출자가 한다.
 """
 
 import time
@@ -71,7 +71,7 @@ class FakeZabbix:
             {
                 "eventid": EVENTID,
                 "objectid": TRIGGERID,
-                "name": "DejaFix demo: CPU 1분 평균 85% 초과",
+                "name": "Demo: CPU 1분 평균 85% 초과",
                 "severity": "4",
                 "clock": str(now - 120),
                 "tags": [{"tag": "scope", "value": "performance"}],
@@ -81,7 +81,7 @@ class FakeZabbix:
     def _trigger_get(self, params, now):
         trig = {
             "triggerid": TRIGGERID,
-            "description": "DejaFix demo: CPU 1분 평균 85% 초과",
+            "description": "Demo: CPU 1분 평균 85% 초과",
             "expression": "avg(/demo-host/system.cpu.util,1m)>85",
             "hosts": [HOST],
             "items": [
@@ -104,7 +104,7 @@ class FakeZabbix:
             {
                 "eventid": EVENTID,
                 "objectid": TRIGGERID,
-                "name": "DejaFix demo: CPU 1분 평균 85% 초과",
+                "name": "Demo: CPU 1분 평균 85% 초과",
                 "severity": "4",
                 "clock": str(now - 120),
                 "r_eventid": "0",

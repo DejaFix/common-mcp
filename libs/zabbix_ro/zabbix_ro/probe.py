@@ -1,4 +1,4 @@
-"""Zabbix 연결 점검 — `python -m zabbix_ro.probe` (T63 실연동 확인용, 읽기 전용).
+"""Zabbix 연결 점검 — `python -m zabbix_ro.probe` (실연동 확인용, 읽기 전용).
 
 `ZABBIX_URL`·`ZABBIX_API_TOKEN`·`ZABBIX_VERIFY_TLS`·`ZABBIX_MOCK` 를 **환경 변수에서만** 읽는다(.env 파일은 읽지 않는다).
 허용 목록의 읽기 메서드를 각각 한 번씩 부르고 OK/FAIL 과 걸린 시간을 줄마다 찍는다. 하나라도 FAIL 이면 종료 코드 1.
@@ -6,7 +6,7 @@
 - 토큰·URL 은 출력하지 않는다. 오류도 `ZabbixError` 메시지(토큰 없음)만 찍는다.
 - 쓰기 메서드는 **실서버로 보내지 않는다.** 쓰기 차단은 네트워크 없는 검사로만 확인한다 — 허용 목록에 쓰기 메서드가 없는지,
   목 클라이언트가 거부하는지. (실서버 클라이언트로 부르면 허용 목록이 깨진 상태에서 운영 서버에 쓰기가 나갈 수 있다.)
-  Zabbix 서버가 읽기 전용 계정의 쓰기를 거부하는지는 이 도구로 확인할 수 없다(T56 의 권한 오류 캡처로 한다).
+  Zabbix 서버가 읽기 전용 계정의 쓰기를 거부하는지는 이 도구로 확인할 수 없다(docs/zabbix/readonly-account.md 의 권한 오류 캡처로 한다).
 
 예)  PowerShell:  $env:ZABBIX_URL="http://<주소>/api_jsonrpc.php"; $env:ZABBIX_API_TOKEN="<토큰>"; uv run python -m zabbix_ro.probe
 """
@@ -103,7 +103,7 @@ def run(
         )
 
     # 쓰기 차단 확인은 **네트워크를 쓰지 않는 방식으로만** 한다. 실서버 클라이언트로 쓰기 메서드를 부르면
-    # 허용 목록이 회귀로 깨진 상태에서 운영 Zabbix 에 쓰기 요청이 나갈 수 있다 (SAFE-02).
+    # 허용 목록이 회귀로 깨진 상태에서 운영 Zabbix 에 쓰기 요청이 나갈 수 있다.
     write_failure = _check_write_block()
     if write_failure is None:
         out(

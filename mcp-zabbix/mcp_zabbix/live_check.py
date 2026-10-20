@@ -1,4 +1,4 @@
-"""실서버 점검 — mcp-zabbix 필수 5도구를 한 번씩 호출한다 (T65, B3 DoD ③).
+"""실서버 점검 — mcp-zabbix 필수 5도구를 한 번씩 호출한다.
 
     uv run --package mcp-zabbix python -m mcp_zabbix.live_check
 

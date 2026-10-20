@@ -1,14 +1,14 @@
 ﻿<#
 .SYNOPSIS
-  데모용 CPU 부하 주입 (FR-INF-003, G12). 논리 코어 수만큼 부하 프로세스를 띄우고 시간이 지나면 스스로 끝난다.
+  데모용 CPU 부하 주입. 논리 코어 수만큼 부하 프로세스를 띄우고 시간이 지나면 스스로 끝난다.
 
 .DESCRIPTION
-  안전 규칙 (docs/plan.md 14장 G12, infra/scripts/README.md)
+  안전 규칙 (infra/scripts/README.md)
   - -Minutes 기본 10, 최대 10. 범위를 벗어나면 실행하지 않는다.
   - 부하 프로세스는 각자 종료 시각을 알고 있어서, 이 창을 닫아도 그 시각에 스스로 끝난다.
   - Ctrl+C로 멈추면 부하 프로세스를 바로 종료한다. 남은 것이 있으면 cleanup.ps1.
   - 이미 주입 중이면 새로 시작하지 않는다(중복 부하 방지).
-  - 야간 실행 금지(야간 작업 루프 포함). 파일은 만들지 않는다(%TEMP%\dejafix-fill\ 은 디스크 주입용).
+  - 업무 시간 외 실행 금지. 파일은 만들지 않는다(%TEMP%\inject-fill\ 은 디스크 주입용).
 
 .EXAMPLE
   powershell -ExecutionPolicy Bypass -File infra\scripts\inject-cpu.ps1 -Minutes 5
@@ -18,7 +18,7 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-$Marker = 'DEJAFIX_INJECT_CPU'   # cleanup.ps1 이 이 표식으로 부하 프로세스를 찾는다
+$Marker = 'INJECT_CPU_MARKER'   # cleanup.ps1 이 이 표식으로 부하 프로세스를 찾는다
 $MaxMinutes = 10
 
 if ($Minutes -lt 1 -or $Minutes -gt $MaxMinutes) {
@@ -27,7 +27,7 @@ if ($Minutes -lt 1 -or $Minutes -gt $MaxMinutes) {
 }
 
 # 워커만 고른다: 표식 + 워커 명령줄 형태(-NonInteractive -WindowStyle Hidden -Command "$tag='표식'").
-# 표식 문자열만 들어간 다른 셸(예: rg DEJAFIX_INJECT_CPU)은 잡지 않는다.
+# 표식 문자열만 들어간 다른 셸(예: rg INJECT_CPU_MARKER)은 잡지 않는다.
 function Get-InjectProcess {
     Get-CimInstance Win32_Process -Filter "Name = 'powershell.exe'" |
         Where-Object {

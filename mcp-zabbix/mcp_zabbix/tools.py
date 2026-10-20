@@ -1,8 +1,8 @@
-"""필수 5도구 (contracts/mcp-tools.md 3장, FR-MCP-002~006).
+"""필수 5도구 (contracts/mcp-tools.md 3장).
 
 Zabbix 는 `client.call(method, params)` 로만 부른다(libs/zabbix_ro 또는 fixture).
 어떤 예외도 봉투(`ok:false`)로 바꿔 돌려주고 스택 트레이스·원문 오류는 넘기지 않는다.
-키 선택은 하지 않는다: `key_search` 는 호출자(Agent)가 도메인 팩 metrics.yaml 로 정해 넘긴다.
+키 선택은 하지 않는다: `key_search` 는 호출자가 도메인 팩 metrics.yaml 로 정해 넘긴다.
 """
 
 import logging

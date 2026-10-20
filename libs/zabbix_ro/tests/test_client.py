@@ -1,4 +1,4 @@
-"""zabbix_ro 클라이언트 — SAFE-02(허용 목록 밖은 요청 전에 거부), Bearer 인증, 오류 변환, 목 모드."""
+"""zabbix_ro 클라이언트 — 허용 목록 밖은 요청 전에 거부, Bearer 인증, 오류 변환, 목 모드."""
 
 import json
 
@@ -43,7 +43,7 @@ def real_client(rec: Recorder, **env):
     return from_env(base, transport=rec.transport())
 
 
-# ---------------------------------------------------------------- SAFE-02
+# ---------------------------------------------------------------- 허용 목록 (쓰기 메서드 거부)
 
 
 @pytest.mark.safety_regression
@@ -335,7 +335,7 @@ def test_token_is_not_in_error_messages():
 
 @pytest.mark.parametrize("missing", ["ZABBIX_URL", "ZABBIX_API_TOKEN"])
 def test_missing_url_or_token_fails_at_call_not_at_creation(missing):
-    """Issue #52: Scheduler 는 호출 오류를 잡아 다음 주기에 재시도한다. 만들 때 죽으면 안 된다."""
+    """주기 폴링 호출자는 호출 오류를 잡아 다음 주기에 재시도한다. 클라이언트를 만들 때 죽으면 안 된다."""
     env = {"ZABBIX_URL": URL, "ZABBIX_API_TOKEN": TOKEN, "ZABBIX_MOCK": "false"}
     env[missing] = ""
     rec = Recorder()
@@ -377,8 +377,8 @@ def test_from_env_reads_os_environ(monkeypatch):
     assert from_env().mock is True
 
 
-def test_scheduler_interface_names_exist():
-    """Issue #52: Scheduler 가 쓰는 이름 (from_env, client.call, 예외 3종)."""
+def test_poller_interface_names_exist():
+    """주기 폴링 호출자가 쓰는 이름 (from_env, client.call, 예외 3종)."""
     assert callable(zabbix_ro.from_env)
     assert callable(zabbix_ro.from_env({"ZABBIX_MOCK": "true"}).call)
     for name in ("MethodNotAllowed", "ZabbixError", "ZabbixRoError"):
